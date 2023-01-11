@@ -23,7 +23,7 @@ ACM
 Cloud Watch
 
 ■Architecture
-![](2023-01-11-21-41-17.png)
+Go to wiki page!
 
 ■Deploy
 1. Move dev directory
