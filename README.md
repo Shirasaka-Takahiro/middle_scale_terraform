@@ -27,7 +27,7 @@ Cloud Watch
 Go to wiki page!
 
 ■Deploy
-1. Move dev directory
+1. Move prod directory
 2. terraform init
 3. terraform plan
 4. terraform apply

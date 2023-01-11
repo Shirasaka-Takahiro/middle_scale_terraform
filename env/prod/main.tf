@@ -9,23 +9,7 @@ provider "aws" {
   region  = var.regions["virginia"]
 }
 
-terraform {
-  required_version = "~> 1.3.6"
-  backend "s3" {
-    bucket  = "example-dev-tfstate-bucket"
-    region  = "ap-northeast-1"
-    key     = "dev.tfstate"
-    profile = "terraform-user"
-  }
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "4.49.0"
-    }
-  }
-}
-
-module "dev" {
+module "prod" {
   source = "../../module"
 
   general_config     = var.general_config
@@ -33,9 +17,11 @@ module "dev" {
   availability_zones = var.availability_zones
   vpc_cidr           = var.vpc_cidr
   public_subnets     = var.public_subnets
+  dmz_subnets = var.dmz_subnets
   private_subnets    = var.private_subnets
-  public_subnet_ids  = module.dev.public_subnet_ids
-  private_subnet_ids = module.dev.private_subnet_ids
+  public_subnet_ids  = module.prod.public_subnet_ids
+  dmz_subnet_ids = module.prod.dmz_subnet_ids
+  private_subnet_ids = module.prod.private_subnet_ids
   ami                = var.ami
   key_name           = var.key_name
   public_key_path    = var.public_key_path

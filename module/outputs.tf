@@ -6,6 +6,10 @@ output "public_subnet_ids" {
   value = values(aws_subnet.public_subnets)[*].id
 }
 
+output "dmz_subnet_ids" {
+  value = values(aws_subnet.dmz_subnets)[*].id
+}
+
 output "private_subnet_ids" {
   value = values(aws_subnet.private_subnets)[*].id
 }
@@ -16,10 +20,6 @@ output "instance_ids" {
 
 output "public_ip" {
   value = aws_eip.eip_ec2.*.public_ip
-}
-
-output "private_ip" {
-  value = aws_instance.ec2-db.private_ip
 }
 
 output "alb_dns_name" {
