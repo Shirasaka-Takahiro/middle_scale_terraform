@@ -18,8 +18,12 @@ output "instance_ids" {
   value = module.prod.instance_ids
 }
 
-output "public_ip" {
-  value = module.prod.public_ip
+output "public_ip_natgateway" {
+  value = module.prod.natgateway_ip
+}
+
+output "public_ip_bastion" {
+  value = module.prod.bastion_ip
 }
 
 output "alb_dns_name" {

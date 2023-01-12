@@ -7,11 +7,11 @@ resource "aws_instance" "ec2-web" {
     aws_security_group.common.id,
     aws_security_group.ec2.id
   ]
-  key_name      = aws_key_pair.key.id
-  instance_type = var.instance_type
+  key_name      = aws_key_pair.key_web.id
+  instance_type = var.instance_type_web
   root_block_device {
-    volume_type = var.volume_type
-    volume_size = var.volume_size
+    volume_type = var.volume_type_web
+    volume_size = var.volume_size_web
   }
 
   user_data = <<EOF
@@ -29,7 +29,7 @@ resource "aws_instance" "ec2-web" {
 }
 
 ##Key Pair
-resource "aws_key_pair" "key" {
-  key_name   = var.key_name
-  public_key = "${file(var.public_key_path)}"
+resource "aws_key_pair" "key_web" {
+  key_name   = var.key_name_web
+  public_key = "${file(var.public_key_path_web)}"
 }

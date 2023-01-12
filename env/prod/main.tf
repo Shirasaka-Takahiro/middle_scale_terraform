@@ -12,23 +12,28 @@ provider "aws" {
 module "prod" {
   source = "../../module"
 
-  general_config     = var.general_config
-  regions            = var.regions
-  availability_zones = var.availability_zones
-  vpc_cidr           = var.vpc_cidr
-  public_subnets     = var.public_subnets
-  dmz_subnets        = var.dmz_subnets
-  private_subnets    = var.private_subnets
-  public_subnet_ids  = module.prod.public_subnet_ids
-  dmz_subnet_ids     = module.prod.dmz_subnet_ids
-  private_subnet_ids = module.prod.private_subnet_ids
-  ami                = var.ami
-  key_name           = var.key_name
-  public_key_path    = var.public_key_path
-  instance_type      = var.instance_type
-  volume_type        = var.volume_type
-  volume_size        = var.volume_size
-  instance_ids       = module.prod.instance_ids
+  general_config        = var.general_config
+  regions               = var.regions
+  availability_zones    = var.availability_zones
+  vpc_cidr              = var.vpc_cidr
+  public_subnets        = var.public_subnets
+  dmz_subnets           = var.dmz_subnets
+  private_subnets       = var.private_subnets
+  public_subnet_ids     = module.prod.public_subnet_ids
+  dmz_subnet_ids        = module.prod.dmz_subnet_ids
+  private_subnet_ids    = module.prod.private_subnet_ids
+  ami                   = var.ami
+  instance_type_web     = var.instance_type_web
+  volume_type_web           = var.instance_type_web
+  volume_size_web           = var.volume_size_web
+  key_name_web              = var.key_name_web
+  public_key_path_web       = var.public_key_path_web
+  instance_type_bastion = var.instance_type_bastion
+  volume_type_bastion           = var.instance_type_bastion
+  volume_size_bastion           = var.volume_size_bastion
+  key_name_bastion              = var.key_name_bastion
+  public_key_path_bastion      = var.public_key_path_bastion
+  instance_ids          = module.prod.instance_ids
   #zone_name          = var.zone_name
   sub_domain_1 = var.sub_domain_1
 }

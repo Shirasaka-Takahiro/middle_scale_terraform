@@ -99,7 +99,7 @@ resource "aws_route_table_association" "dmz_route_associations" {
   route_table_id = aws_route_table.dmz_route_tables[each.key].id
 }
 
-##EIP for Nat Gateway
+##Elastic IP for Nat Gateway
 resource "aws_eip" "eip_nat_gateway" {
   vpc = true
   tags = {

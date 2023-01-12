@@ -100,30 +100,58 @@ variable "ami" {
   default     = "ami-0bba69335379e17f8"
 }
 
-variable "instance_type" {
+variable "instance_type_web" {
   description = "The type of instance"
   type        = string
   default     = "t3.micro"
 }
 
-variable "volume_type" {
+variable "volume_type_web" {
   description = "The type of root block device"
   type        = string
   default     = "gp2"
 }
 
-variable "volume_size" {
+variable "volume_size_web" {
   description = "The size of root block device"
   default     = 100
 }
 
-variable "key_name" {
+variable "key_name_web" {
   description = "key name of the key pair"
   type        = string
 }
 
-variable "public_key_path" {
-  description = "key path of the public key. Example: ~/.ssh/terraform.pub"
+variable "public_key_path_web" {
+  description = "key path of the web instance's public key. Example: ~/.ssh/terraform.pub"
+  type        = string
+}
+
+##Bastion
+variable "instance_type_bastion" {
+  description = "The type of bastion instance"
+  type        = string
+  default     = "m4.large"
+}
+
+variable "volume_type_bastion" {
+  description = "The type of root block device"
+  type        = string
+  default     = "gp2"
+}
+
+variable "volume_size_bastion" {
+  description = "The size of root block device"
+  default     = 100
+}
+
+variable "key_name_bastion" {
+  description = "key name of the key pair"
+  type        = string
+}
+
+variable "public_key_path_bastion" {
+  description = "key path of the bastion's public key. Example: ~/.ssh/terraform.pub"
   type        = string
 }
 

@@ -18,8 +18,12 @@ output "instance_ids" {
   value = aws_instance.ec2-web.*.id
 }
 
-output "public_ip" {
+output "natgateway_ip" {
   value = aws_eip.eip_nat_gateway.public_ip
+}
+
+output "bastion_ip" {
+  value = aws_eip.eip_bastion.public_ip
 }
 
 output "alb_dns_name" {
