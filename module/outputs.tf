@@ -19,7 +19,7 @@ output "instance_ids" {
 }
 
 output "public_ip" {
-  value = aws_eip.eip_ec2.*.public_ip
+  value = aws_eip.eip_nat_gateway.public_ip
 }
 
 output "alb_dns_name" {

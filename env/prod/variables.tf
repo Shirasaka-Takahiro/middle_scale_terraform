@@ -62,12 +62,12 @@ variable "dmz_subnets" {
   type = map(any)
   default = {
     subnets = {
-      public-1a = {
+      dmz-1a = {
         name = "dmz-1a",
         cidr = "10.0.20.0/24",
         az   = "ap-northeast-1a"
       },
-      public-1c = {
+      dmz-1c = {
         name = "dmz-1c",
         cidr = "10.0.40.0/24",
         az   = "ap-northeast-1c"

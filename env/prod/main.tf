@@ -17,10 +17,10 @@ module "prod" {
   availability_zones = var.availability_zones
   vpc_cidr           = var.vpc_cidr
   public_subnets     = var.public_subnets
-  dmz_subnets = var.dmz_subnets
+  dmz_subnets        = var.dmz_subnets
   private_subnets    = var.private_subnets
   public_subnet_ids  = module.prod.public_subnet_ids
-  dmz_subnet_ids = module.prod.dmz_subnet_ids
+  dmz_subnet_ids     = module.prod.dmz_subnet_ids
   private_subnet_ids = module.prod.private_subnet_ids
   ami                = var.ami
   key_name           = var.key_name
@@ -28,7 +28,7 @@ module "prod" {
   instance_type      = var.instance_type
   volume_type        = var.volume_type
   volume_size        = var.volume_size
-  instance_ids       = module.dev.instance_ids
+  instance_ids       = module.prod.instance_ids
   #zone_name          = var.zone_name
   sub_domain_1 = var.sub_domain_1
 }

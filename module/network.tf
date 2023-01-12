@@ -110,7 +110,7 @@ resource "aws_eip" "eip_nat_gateway" {
 ##NAT Gateway
 resource "aws_nat_gateway" "nat_gateway" {
   allocation_id = aws_eip.eip_nat_gateway.id
-  subnet_id = aws_subnet.dmz_subnets[0]
+  subnet_id = var.dmz_subnet_ids[0]
   depends_on = [
     aws_internet_gateway.internet_gateway
   ]
