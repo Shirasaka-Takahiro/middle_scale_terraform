@@ -29,3 +29,7 @@ output "public_ip_bastion" {
 output "alb_dns_name" {
   value = module.prod.alb_dns_name
 }
+
+output "rds_endpoint" {
+  value = module.dev.rds_endpoint
+}
