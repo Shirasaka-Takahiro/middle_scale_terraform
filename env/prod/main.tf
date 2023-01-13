@@ -36,4 +36,5 @@ module "prod" {
   instance_ids            = module.prod.instance_ids
   #zone_name          = var.zone_name
   sub_domain_1 = var.sub_domain_1
+  sub_domain_2 = var.sub_domain_2
 }

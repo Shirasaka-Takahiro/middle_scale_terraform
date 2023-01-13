@@ -26,3 +26,8 @@ variable "private_subnet_ids" {}
 variable "instance_ids" {}
 #variable "zone_name" {}
 variable "sub_domain_1" {}
+variable "sub_domain_2" {}
+provider "aws" {
+  alias  = "us-east-1"
+  region = var.regions["virginia"]
+}

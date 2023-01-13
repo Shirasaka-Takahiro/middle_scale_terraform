@@ -3,7 +3,7 @@ variable "general_config" {
   type = map(any)
   default = {
     project = "example"
-    env     = "dev"
+    env     = "prod"
   }
 }
 
@@ -167,4 +167,10 @@ variable "sub_domain_1" {
   description = "name of sub domain"
   type        = string
   default     = "www"
+}
+
+variable "sub_domain_2" {
+  description = "name of sub domain for alb"
+  type        = string
+  default     = "loadbalancer"
 }
