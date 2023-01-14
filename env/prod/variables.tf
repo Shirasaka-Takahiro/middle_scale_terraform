@@ -82,12 +82,12 @@ variable "private_subnets" {
     subnets = {
       private-1a = {
         name = "private-1a"
-        cidr = "10.0.30.0/24"
+        cidr = "10.0.50.0/24"
         az   = "ap-northeast-1a"
       },
       private-1c = {
         name = "private-1c"
-        cidr = "10.0.60.0/24"
+        cidr = "10.0.70.0/24"
         az   = "ap-northeast-1c"
       }
     }

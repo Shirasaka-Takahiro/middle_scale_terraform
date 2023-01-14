@@ -28,8 +28,7 @@ resource "aws_subnet" "dmz_subnets" {
   for_each                = var.dmz_subnets.subnets
   cidr_block              = each.value.cidr
   availability_zone       = each.value.az
-  map_public_ip_on_launch = true
-
+  map_public_ip_on_launch = false
   tags = {
     Name = "${var.general_config["project"]}-${var.general_config["env"]}-dmz-${substr(each.value.az, -2, 2)}"
   }
@@ -41,6 +40,7 @@ resource "aws_subnet" "private_subnets" {
   for_each          = var.private_subnets.subnets
   cidr_block        = each.value.cidr
   availability_zone = each.value.az
+  map_public_ip_on_launch = false
 
   tags = {
     Name = "${var.general_config["project"]}-${var.general_config["env"]}-private-${substr(each.value.az, -2, 2)}"

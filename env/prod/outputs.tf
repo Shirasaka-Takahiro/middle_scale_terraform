@@ -31,5 +31,5 @@ output "alb_dns_name" {
 }
 
 output "rds_endpoint" {
-  value = module.dev.rds_endpoint
+  value = module.prod.rds_endpoint
 }

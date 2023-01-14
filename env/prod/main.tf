@@ -35,8 +35,8 @@ module "prod" {
   public_key_path_bastion = var.public_key_path_bastion
   instance_ids            = module.prod.instance_ids
   #zone_name          = var.zone_name
-  sub_domain_1 = var.sub_domain_1
-  sub_domain_2 = var.sub_domain_2
+  sub_domain_1                      = var.sub_domain_1
+  sub_domain_2                      = var.sub_domain_2
   engine_name                       = var.engine_name
   major_engine_version              = var.major_engine_version
   engine                            = var.engine
