@@ -2,7 +2,7 @@
 resource "aws_cloudwatch_metric_alarm" "cwa_alb_unhealthyhostcount" {
   alarm_name          = "${aws_lb.alb.name}-UnHealthyHostCount"
   metric_name         = "UnHealthyHostCount"
-  namespace           = "AWS/AWS/ApplicationELB"
+  namespace           = "AWS/ApplicationELB"
   statistic           = "Average"
   period              = 300
   threshold           = 1
@@ -33,8 +33,7 @@ resource "aws_cloudwatch_metric_alarm" "cwa_rds_cpuutilization" {
   alarm_actions       = [aws_sns_topic.sns_topic.arn]
   ok_actions          = [aws_sns_topic.sns_topic.arn]
   dimensions = {
-    TargetGroup  = aws_lb_target_group.tg.arn_suffix
-    LoadBalancer = aws_lb.alb.arn_suffix
+    DBInstanceIdentifier = aws_db_instance.rds_db_instance.identifier
   }
 }
 
@@ -52,8 +51,7 @@ resource "aws_cloudwatch_metric_alarm" "cwa_rds_freeablememory" {
   alarm_actions       = [aws_sns_topic.sns_topic.arn]
   ok_actions          = [aws_sns_topic.sns_topic.arn]
   dimensions = {
-    TargetGroup  = aws_lb_target_group.tg.arn_suffix
-    LoadBalancer = aws_lb.alb.arn_suffix
+    DBInstanceIdentifier = aws_db_instance.rds_db_instance.identifier
   }
 }
 
@@ -71,7 +69,6 @@ resource "aws_cloudwatch_metric_alarm" "cwa_rds_freeablestorage" {
   alarm_actions       = [aws_sns_topic.sns_topic.arn]
   ok_actions          = [aws_sns_topic.sns_topic.arn]
   dimensions = {
-    TargetGroup  = aws_lb_target_group.tg.arn_suffix
-    LoadBalancer = aws_lb.alb.arn_suffix
+    DBInstanceIdentifier = aws_db_instance.rds_db_instance.identifier
   }
 }
