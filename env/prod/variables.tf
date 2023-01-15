@@ -241,7 +241,7 @@ variable "sns_email" {
 variable "cwa_actions" {
   description = "Cloud watch alearm actions"
   type        = string
-  default     = "false"
+  default     = "true"
 }
 
 ##Cloud Watch Threshold
