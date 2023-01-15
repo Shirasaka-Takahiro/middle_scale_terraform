@@ -39,8 +39,7 @@ resource "aws_cloudfront_distribution" "cloudfront" {
     allowed_methods  = ["HEAD", "DELETE", "POST", "GET", "OPTIONS", "PUT", "PATCH"]
     cached_methods   = ["HEAD", "GET", "OPTIONS"]
     target_origin_id = aws_lb.alb.id
-    cache_policy_id = data.aws_cloudfront_cache_policy.cache_policy
-
+  
     forwarded_values {
       query_string = true
       cookies {
@@ -54,12 +53,4 @@ resource "aws_cloudfront_distribution" "cloudfront" {
     default_ttl            = 10
     max_ttl                = 60
   }
-
-
-
-}
-
-##Cache policy
-data "aws_cloudfront_cache_policy" "cache_policy" {
-  name = "Managed-CachingOptimized"
 }

@@ -6,7 +6,7 @@ resource "aws_cloudwatch_metric_alarm" "cwa_alb_unhealthyhostcount" {
   statistic           = "Average"
   period              = 300
   threshold           = 1
-  comparison_operator = "GreaterThanThreshold"
+  comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = 1
   treat_missing_data  = "missing"
   actions_enabled     = var.cwa_actions
@@ -26,7 +26,7 @@ resource "aws_cloudwatch_metric_alarm" "cwa_rds_cpuutilization" {
   statistic           = "Average"
   period              = 300
   threshold           = 80
-  comparison_operator = "GreaterThanThreshold"
+  comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = 1
   treat_missing_data  = "missing"
   actions_enabled     = var.cwa_actions
@@ -45,7 +45,7 @@ resource "aws_cloudwatch_metric_alarm" "cwa_rds_freeablememory" {
   statistic           = "Average"
   period              = 300
   threshold           = var.cwa_threshold_rds_freeablememory
-  comparison_operator = "LessThanThreshold"
+  comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = 1
   treat_missing_data  = "missing"
   actions_enabled     = var.cwa_actions
@@ -64,7 +64,7 @@ resource "aws_cloudwatch_metric_alarm" "cwa_rds_freeablestorage" {
   statistic           = "Average"
   period              = 300
   threshold           = var.cwa_threshold_rds_freeablestorage
-  comparison_operator = "LessThanThreshold"
+  comparison_operator = "LessThanOrEqualToThreshold"
   evaluation_periods  = 1
   treat_missing_data  = "missing"
   actions_enabled     = var.cwa_actions
